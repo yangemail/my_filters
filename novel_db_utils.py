@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import time
+
 import json
 import pprint
 import pymongo
@@ -82,7 +84,11 @@ class B23usCom(BaseDbObject):
 
 
 if __name__ == '__main__':
+    start = time.clock()
+
     b23us_com = B23usCom()
-    for i in range(10):
+    for i in range(10000):
         b23us_com.run()
 
+    elapsed = (time.clock() - start)
+    print('Time used: ', elapsed)
